@@ -48,7 +48,7 @@ Windows: ```venv\Scripts\activate```
 
 ```pip install -r requeriments.txt```
 
-> Sempre que desinstalar ou instalar novos pacotes, execute o script ```sh scpt-freeze-requeriments.sh para atualizar o requeriments.txt``` e commit o update do arquivo
+> Sempre que desinstalar ou instalar novos pacotes, execute o script ```sh scpt-freeze-requeriments.sh```  para atualizar o requeriments.txt e commit o update do arquivo
 
 3. Execute o script sh ```start-dev.sh```
 
