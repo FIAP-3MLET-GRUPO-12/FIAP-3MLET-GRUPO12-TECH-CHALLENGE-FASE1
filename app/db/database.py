@@ -4,5 +4,12 @@ from app.models.user_model import User
 from app.config import settings
 
 async def init_db():
-    client = AsyncIOMotorClient(f"{settings.MONGODB_URL}/{settings.MONGODB_DB}")
-    await init_beanie(database=client[settings.MONGODB_DB], document_models=[User])
+    mongo_url = f"{settings.MONGODB_URL}"
+    client = AsyncIOMotorClient(mongo_url)
+    try:
+        await init_beanie(database=client[settings.MONGODB_DB], document_models=[User])
+    except Exception as e:
+        print(f"MONGO_DB_INIT: {e}")
+        client.close()
+    
+        

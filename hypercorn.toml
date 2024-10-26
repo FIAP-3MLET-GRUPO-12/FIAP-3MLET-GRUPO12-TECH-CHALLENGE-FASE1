@@ -1,0 +1,13 @@
+[default]
+bind = "0.0.0.0:8000"
+workers = 4
+loglevel = "info"
+keep_alive_timeout = 5
+graceful_timeout = 30
+access_log = "access.log"
+error_log = "error.log"
+
+# Configuração de TLS (HTTPS) - opcional
+[tls]
+certfile = "/path/to/certificate.pem"
+keyfile = "/path/to/key.pem"
