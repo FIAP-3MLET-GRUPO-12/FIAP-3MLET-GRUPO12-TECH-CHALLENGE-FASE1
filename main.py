@@ -13,10 +13,10 @@ class User(Document):
         
 # Conectar ao MongoDB e inicializar o Beanie
 async def init_db():
-    client = AsyncIOMotorClient("mongodb://localhost:27017")
-    await init_beanie(database=client.my_database, document_models=[User])
+    client = AsyncIOMotorClient("mongodb://localhost:27017/emprapa_db")
+    await init_beanie(database=client.embrapa_db, document_models=[User])
         
-async def lifespan():
+async def lifespan(app: FastAPI):
     # Code before startup event
     await init_db()
     yield
@@ -31,5 +31,5 @@ app = FastAPI(lifespan=lifespan)
 @app.post("/users")
 async def create_user(user: User):
     await user.insert()
-    return user.model_dump()
+    return user
     
