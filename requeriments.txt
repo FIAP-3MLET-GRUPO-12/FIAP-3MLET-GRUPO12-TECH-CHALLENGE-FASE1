@@ -40,9 +40,11 @@ Flask==3.0.2
 frozenlist==1.5.0
 fsspec==2024.10.0
 greenlet==3.1.1
+gunicorn==23.0.0
 h11==0.14.0
 h2==4.1.0
 hpack==4.0.0
+httptools==0.6.4
 huggingface-hub==0.26.1
 Hypercorn==0.17.3
 hyperframe==6.0.1
@@ -123,7 +125,10 @@ typing_extensions==4.12.2
 unstructured==0.12.4
 unstructured-client==0.18.0
 urllib3==2.2.3
+uvicorn==0.32.0
 virtualenv==20.27.0
+watchfiles==0.24.0
+websockets==13.1
 Werkzeug==3.0.1
 wrapt==1.16.0
 wsproto==1.2.0
