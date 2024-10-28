@@ -58,7 +58,7 @@ joblib==1.4.2
 jsonpath-python==1.0.6
 jsonschema==4.21.1
 jsonschema-specifications==2024.10.1
-langchain==0.0.248
+langchain~=0.0.3
 langdetect==1.0.9
 langsmith==0.0.92
 lazy-model==0.2.0
@@ -91,9 +91,9 @@ propcache==0.2.0
 psutil==6.1.0
 psycopg2-binary==2.9.9
 pycparser==2.22
-pydantic==2.9.2
+pydantic==2.8.2
 pydantic-settings==2.6.0
-pydantic_core==2.25.0
+pydantic_core==2.20.1
 PyJWT==2.9.0
 pymongo==4.9.2
 pypdf==4.0.2
@@ -103,6 +103,7 @@ python-dotenv==1.0.1
 python-iso639==2024.10.22
 python-magic==0.4.27
 pytz==2024.2
+pywin32==308
 PyYAML==6.0.2
 RapidFuzz==3.10.1
 redis==5.2.0
