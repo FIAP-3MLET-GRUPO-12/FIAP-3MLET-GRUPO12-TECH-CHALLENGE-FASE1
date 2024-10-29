@@ -1,3 +1,5 @@
+import math
+from beanie import PydanticObjectId
 import pandas as pd
 from typing import List
 from typing import Dict
@@ -19,7 +21,6 @@ def parse_data_frame_to_product_json(df: pd.DataFrame, type: ProductType) -> Lis
 
     Structure of the returned dictionary:
         {
-            "id": <value of the 'id' field in the row>,
             "name": <value of the 'product' field in the row>,
             "category": <value of the 'control' field in the row>,
             "type": <name of the product type>,
@@ -33,10 +34,13 @@ def parse_data_frame_to_product_json(df: pd.DataFrame, type: ProductType) -> Lis
         }
     """
     data_json = []
-    for _, row in df.iterrows():
+    for _, row in df.iterrows(): 
+        if not isinstance(row["control"], str):
+            row["control"] = row.get("produto") or row.get("cultivar") or row.get("Produto")
+
         data = {
-            "id": row["id"],
-            "name": row["produto"],
+            "id": PydanticObjectId(),
+            "name": row.get("produto") or row.get("cultivar") or row.get("Produto"),
             "category": row["control"],
             "type": type.value,
             "years": []
@@ -46,12 +50,22 @@ def parse_data_frame_to_product_json(df: pd.DataFrame, type: ProductType) -> Lis
 
         for year in range(1970, current_year + 1):
             year_str = str(year)
+           
             if year_str in row:
+                value = 0
+                if isinstance(row[year_str], str):
+                   row[year_str] = remove_after_comma(row[year_str])
+                   if row[year_str].isdigit():
+                       value = int(row[year_str])   
+
                 data["years"].append({
                     "year": int(year_str),
-                    "value": row[year_str]
+                    "value": value
                 })    
 
         data_json.append(data)
 
     return data_json
+
+def remove_after_comma(s):
+    return s.split(',')[0]
