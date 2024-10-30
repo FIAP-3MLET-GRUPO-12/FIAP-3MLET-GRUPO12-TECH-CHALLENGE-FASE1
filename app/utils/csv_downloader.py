@@ -2,7 +2,7 @@ import requests
 import pandas as pd
 from io import BytesIO
 
-def download_csv_from_url(url: str) -> pd.DataFrame:
+def download_csv_from_url(url: str, delimiter: str=';') -> pd.DataFrame:
     """
     Downloads a CSV file from the given URL and returns it as a pandas DataFrame.
 
@@ -29,7 +29,7 @@ def download_csv_from_url(url: str) -> pd.DataFrame:
         response.raise_for_status()
 
         data = BytesIO(response.content)
-        df = pd.read_csv(data, delimiter=';')
+        df = pd.read_csv(data, delimiter=delimiter)
 
         return df
     
