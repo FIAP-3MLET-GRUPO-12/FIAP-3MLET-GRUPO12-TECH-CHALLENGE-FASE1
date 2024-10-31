@@ -1,3 +1,4 @@
+import logging
 from app.config import settings
 from app.models.product_model import Product
 from app.utils.csv_downloader import download_csv_from_url
@@ -19,13 +20,17 @@ async def product_setup():
    ]
    
    products = []
+   logging.info(" - Downloading product data...")
    for file_suffix, product_type, delimiter in csv_files:
+        logging.info(f" - Downloading {file_suffix}...")
         df = download_csv_from_url(base_url + file_suffix, delimiter)
         json_data = parse_data_frame_to_product_json(df, product_type)
         products.extend([Product(**product) for product in json_data])
 
    labeled_products = label_all_products(products)
+   logging.info(" - Inserting product data...")
    await insert_all_products(labeled_products)  
+   logging.info(" - Product data inserted successfully!")
 
 async def products_exist() -> bool:
     existing_products = await Product.find_all().to_list()
