@@ -1,11 +1,12 @@
-from typing import Literal
+from typing import Dict, Literal
 from fastapi import APIRouter, HTTPException
 from app.models.product_model import Product
+from app.schemas.product_report_schema import ProductReportSchema
 from app.utils.product_type_enum import ProductType
 
 router = APIRouter()
 
-@router.get("/{processing_category}", summary="Get Processing report for last year")
+@router.get("/{processing_category}", summary="Get Processing report for last year", )
 async def get_processing_report(processing_category: Literal[
         ProductType.PROCESSING_AMERICAN.value, # type: ignore
         ProductType.PROCESSING_TABLE_GRAPES.value, # type: ignore

@@ -22,7 +22,7 @@ class Product(Document):
         cls, 
         type_value: str, 
         specific_year: Optional[int] = None
-    ) -> ProductReportSchema:
+    ) -> List[dict]:
         products = await cls.find(cls.type == type_value).to_list()
         
         result = []
