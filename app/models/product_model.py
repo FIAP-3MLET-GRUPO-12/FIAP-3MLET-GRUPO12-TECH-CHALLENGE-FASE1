@@ -27,7 +27,7 @@ class Product(Document):
         
         result = []
         for product in products:
-            # Filtrando o ano mais recente disponível
+            # Filtering the most recent available year
             selected_year = max(
                 (year for year in product.years 
                  if specific_year is None or year.year == specific_year),
@@ -36,12 +36,12 @@ class Product(Document):
             )
             
             if selected_year is None:
-                continue  # Pula o produto se o ano desejado não for encontrado
+                continue  # Skip the product if the desired year is not found
             
             product_data = product.model_dump()
-            product_data["value"] = selected_year.value  # Substitui `years` por `year`
-            del product_data["years"]  # Remove o campo `years`
-            del product_data["id"]  # Remove o campo `id`
+            product_data["value"] = selected_year.value  # Replace `years` with `year`
+            del product_data["years"] # Remove the `years` field
+            del product_data["id"]  # Remove the `id` field
             result.append(product_data)
 
         

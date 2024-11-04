@@ -15,6 +15,7 @@ azure-search-documents==11.4.0b6
 azure-servicebus==7.12.1
 azure-storage-blob==12.19.0
 backoff==2.2.1
+bcrypt==4.2.0
 beanie==1.27.0
 beautifulsoup4==4.12.3
 blinker==1.7.0
