@@ -5,6 +5,7 @@ Modela a estrutura do relatório referente à categoria de Processamento
 """
 class ProductReportSchema(BaseModel):
     type: str
+    name: str
     year: int
     categories: list["CategoryItem"]
     

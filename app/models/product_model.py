@@ -1,9 +1,9 @@
-from datetime import datetime
 from beanie import Document, PydanticObjectId
-from typing import Dict, List, Optional
+from typing import List, Optional
 
 from fastapi import HTTPException
 
+from app.schemas.product_report_schema import ProductReportSchema
 from app.schemas.year_schema import Year
 from app.utils.product_report_generator import ProductReportGenerator
 
@@ -22,7 +22,7 @@ class Product(Document):
         cls, 
         type_value: str, 
         specific_year: Optional[int] = None
-    ) -> List[dict]:
+    ) -> ProductReportSchema:
         products = await cls.find(cls.type == type_value).to_list()
         
         result = []

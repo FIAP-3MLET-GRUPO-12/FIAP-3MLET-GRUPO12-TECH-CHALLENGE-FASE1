@@ -8,7 +8,7 @@ class ProductReportGenerator:
         self.year = year
         self.type = type
 
-    def generate(self):
+    def generate(self) -> ProductReportSchema:
         # Cria a estrutura inicial do relatório
         report: ProductReportSchema = {
             "type": self.type,
