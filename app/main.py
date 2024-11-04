@@ -3,7 +3,8 @@ from fastapi import FastAPI
 
 from app.db.database import init_db
 
-from app.routers import user_router
+from app.routers import production_router,processing_router, commercialization_router
+
 from contextlib import asynccontextmanager
 
 from app.utils.trade_setup import trade_setup
@@ -17,7 +18,9 @@ async def lifespan(app: FastAPI):
     
 app = FastAPI(lifespan=lifespan)
 
-app.include_router(user_router.router, prefix="/users", tags=["users"])
+app.include_router(production_router.router, prefix="/production", tags=["production"])
+app.include_router(processing_router.router, prefix="/processing", tags=["processing"])
+app.include_router(commercialization_router.router, prefix="/commercialization", tags=["commercialization"])
 
 logging.basicConfig(level=logging.INFO)
 
