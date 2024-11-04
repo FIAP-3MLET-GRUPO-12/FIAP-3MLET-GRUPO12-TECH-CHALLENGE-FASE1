@@ -7,57 +7,61 @@
 ```
 fiap-3mlet-grupo12-tech-challenge-fase1/
 ├── app/
-│   ├── main.py                 # Arquivo principal do FastAPI
-│   ├── config.py               # Configurações e variáveis de ambiente
-│   ├── models/                 # Modelos do banco de dados Beanie
-│   │   └── user_model.py       # Modelo de exemplo `User` com Beanie
-│   ├── db/                     # Configurações de conexão com banco de dados
-│   │   └── database.py         # Inicialização do MongoDB com Beanie
-│   ├── routers/                # Rotas da aplicação
-│   │   └── user_router.py      # Rotas para `User`
-│   ├── schemas/                # Schemas/Pydantic para validar dados
-│   │   └── user_schema.py      # Schema para o `User`
-│   └── utils/                  # Funções utilitárias e helpers
-│       └── some_util.py        # Exemplo de utilidade
-├── .env                        # Arquivo de variáveis de ambiente
-├── .gitignore                  # Arquivo .gitignore
-├── hypercorn.toml              # Settings para o servidor de produção
-├── requirements.txt            # Lista de dependências
-├── scpt-freeze-requeriments.sh # Faz o freeze do pip para o txt, execute para atualizaro txt
-├── start-dev.sh                # Iniciar o servidor em modo desenvolvimento
-└── README.md                   # Documentação do projeto
+│   ├── main.py                 # Main FastAPI file
+│   ├── config.py               # Configuration and environment variables
+│   ├── models/                 # Beanie database models
+│   │   └── user_model.py       # Example `User` model with Beanie
+│   ├── db/                     # Database connection configurations
+│   │   └── database.py         # MongoDB initialization with Beanie
+│   ├── routers/                # Application routes
+│   │   └── user_router.py      # Routes for `User`
+│   ├── schemas/                # Pydantic schemas for data validation
+│   │   └── user_schema.py      # Schema for `User`
+│   └── utils/                  # Utility functions and helpers
+│       └── some_util.py        # Example utility
+├── .env                        # Environment variables file
+├── .gitignore                  # .gitignore file
+├── hypercorn.toml              # Production server settings
+├── requirements.txt            # List of dependencies
+├── scpt-freeze-requirements.sh # Freezes pip requirements to txt, run to update the txt
+├── start-dev.sh                # Start the server in development mode
+└── README.md                   # Project documentation
 
 ```
 
 # Running
 ## Local Development
 
-Garanta ter o Python instalado na máquina.
-> sugestão: [Simple Python Version Management: pyenv](https://github.com/pyenv/pyenv)
+Ensure Python is installed on the machine.
+> suggestion: [Simple Python Version Management: pyenv](https://github.com/pyenv/pyenv)
 
-### Ativando virtual env
+### Activating virtual env
 
-1. Na raiz do projeto execute:
+1. At the root of the project, run:
 
 Mac/Linux: ```source venv/bin/activate```
 
 Windows: ```venv\Scripts\activate```
 
 
-2. Instale as dependências
+2. Install the dependencies:
 
 ```pip install -r requeriments.txt```
 
-> Sempre que desinstalar ou instalar novos pacotes, execute o script ```sh scpt-freeze-requeriments.sh```  para atualizar o requeriments.txt e commit o update do arquivo
+> Whenever you uninstall or install new packages, run the script ```sh scpt-freeze-requeriments.sh``` to update the requirements.txt and commit the file update
 
-3. Execute o script sh ```start-dev.sh```
+3. run the script sh ```start-dev.sh```
 
 ```bash
 sh start-dev.sh
 ```
 
-O projeto iniciará na porta 8000 e estará pronto para desenvolvimento com _reload_
+The project will start on port 8000 and will be ready for development with reload
 
-## Local Production
+## Swagger Documentation
 
-[ ] TO DO
+Access the API documentation at:
+
+```
+http://localhost:8000/docs
+```

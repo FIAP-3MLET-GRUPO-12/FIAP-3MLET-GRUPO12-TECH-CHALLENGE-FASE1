@@ -1,20 +1,35 @@
+import bcrypt
 from beanie import Document
-from passlib.context import CryptContext
 from pydantic import EmailStr
-
-
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 class User(Document):
   email: EmailStr
   hashed_password: str
 
   def verify_password(self, password: str) -> bool:
-    return pwd_context.verify(password, self.hashed_password) 
+    """
+    Verifies if the provided password matches the stored hashed password.
+
+    Args:
+        password (str): The plain text password to verify.
+
+    Returns:
+        bool: True if the password matches, False otherwise.
+    """  
+    return bcrypt.checkpw(password.encode('utf-8'), self.hashed_password.encode('utf-8')) 
   
   @classmethod
   def hash_password(cls, password: str) -> str:
-    return pwd_context.hash(password)
+    """
+    Hashes the provided password and returns the hashed password.
+
+    Args:
+      password (str): The plain text password to hash.
+
+    Returns:
+      str: The hashed password.
+    """
+    return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
   
   class Settings:
     collection = "users"
