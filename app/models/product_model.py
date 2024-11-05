@@ -5,7 +5,7 @@ from fastapi import HTTPException
 
 from app.schemas.product_report_schema import ProductReportSchema
 from app.schemas.year_schema import Year
-from app.utils.product_report_generator import ProductReportGenerator
+from app.utils.report_generator import ReportGenerator
 
 class Product(Document):
     id: Optional[PydanticObjectId] = None
@@ -49,7 +49,7 @@ class Product(Document):
         if not result:
             raise HTTPException(status_code=404, detail="No products found for the given type or year")
         
-        return ProductReportGenerator(result, year=specific_year, type=type_value).generate()
+        return ReportGenerator(year=specific_year).create_product_report(product=result, type_value=type_value)
 
     
     class Config:
