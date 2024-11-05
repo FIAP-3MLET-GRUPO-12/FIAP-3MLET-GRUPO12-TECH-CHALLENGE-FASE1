@@ -3,7 +3,7 @@ from fastapi import FastAPI
 
 from app.db.database import init_db
 
-from app.routers import production_router,processing_router, commercialization_router, user_router
+from app.routers import production_router,processing_router, commercialization_router, user_router, trade_router
 
 from contextlib import asynccontextmanager
 
@@ -22,6 +22,7 @@ app.include_router(user_router.router, prefix="/users", tags=["users"])
 app.include_router(production_router.router, prefix="/production", tags=["production"])
 app.include_router(processing_router.router, prefix="/processing", tags=["processing"])
 app.include_router(commercialization_router.router, prefix="/commercialization", tags=["commercialization"])
+app.include_router(trade_router.router, prefix="/trade", tags=["trade"])
 
 logging.basicConfig(level=logging.INFO)
 

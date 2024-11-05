@@ -1,14 +1,40 @@
 from typing import Dict, List
 from app.schemas.product_report_schema import ProductReportSchema
+from app.schemas.trade_report_schema import TradeReportSchema
 
-class ProductReportGenerator:
+class ReportGenerator:
     def __init__(self, product: List[Dict[str, str | int]], year: int, type: str) -> None: 
         # Inicializa a classe com a lista de produtos, ano e tipo de relatório
         self.product = product
         self.year = year
         self.type = type
+        
+    def create_trade_report(self, trades: List[Dict[str, str | int]], derivative, type) -> TradeReportSchema:
+        # Cria a estrutura inicial do relatório
+        report: TradeReportSchema = {
+            "type": type,
+            "year": self.year,
+            "derivative": derivative,
+            "trades": []
+        }
+        
+        for trade in trades:
+            # Cria um item de negociação com país, categoria e valor
+            trade_item = {
+                "country": trade['country'],
+                "quantity": trade['year_value'].qtd,
+                "value": trade['year_value'].value
+            }
+            
+            # Adiciona o item de negociação ao relatório
+            report["trades"].append(trade_item)
+            
+        
+        # Retorna o relatório gerado
+        return report
+        
 
-    def generate(self) -> ProductReportSchema:
+    def create_product_report(self) -> ProductReportSchema:
         # Cria a estrutura inicial do relatório
         report: ProductReportSchema = {
             "type": self.type,
