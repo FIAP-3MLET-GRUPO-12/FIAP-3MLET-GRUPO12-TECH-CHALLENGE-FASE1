@@ -70,9 +70,12 @@ The project will start on port 8000 and will be ready for development with reloa
 
 Access the API documentation at:
 
+Local
 ```
 http://localhost:8000/docs
 ```
+
+[API Produção: https://3mlet-fase1-grupo12.rmnegocios.com/docs](https://3mlet-fase1-grupo12.rmnegocios.com/docs)
 
 # Project Archtecture
 
@@ -97,6 +100,8 @@ Below is a scheme of the application data flow.
 The application is hosted on a virtual private server (VPS) with Ubuntu operating system. Delivery is made via pre -built docker image.
 
 ![Infra schema](/docs/infra.drawio.png)
+
+
 
 
 # Swegger Snapshot
