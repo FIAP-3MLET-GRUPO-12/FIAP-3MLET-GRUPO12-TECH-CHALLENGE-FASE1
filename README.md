@@ -2,7 +2,7 @@
 Group Components
 
 * [Ricardo Matos RM359670](https://www.linkedin.com/in/ricardo-matos-mobile-dev/)
-* [José Diôgo](https://www.linkedin.com/in/jozediogo/)
+* [José Diôgo RM359671](https://www.linkedin.com/in/jozediogo/)
 
 # Project
 
