@@ -1,7 +1,7 @@
 
 Group Components
 
-* [Ricardo Matos](https://www.linkedin.com/in/ricardo-matos-mobile-dev/)
+* [Ricardo Matos RM359670](https://www.linkedin.com/in/ricardo-matos-mobile-dev/)
 * [José Diôgo](https://www.linkedin.com/in/jozediogo/)
 
 # Project
@@ -88,11 +88,13 @@ Initially, we make a load of existing data on the portal in Mongodb. This is per
 
 The load and update is by processing CSV files provided by downloading by the portal itself.
 
-Abaixo é apresentado um esquema do fluxo de dados da aplicação.
+Below is a scheme of the application data flow.
 
 ![Archtecture Model](/docs/archtecture.drawio.png)
 
 ## Infrastructure
+
+The application is hosted on a virtual private server (VPS) with Ubuntu operating system. Delivery is made via pre -built docker image.
 
 
 
