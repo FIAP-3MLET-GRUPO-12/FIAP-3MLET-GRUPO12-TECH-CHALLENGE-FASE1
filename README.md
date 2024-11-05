@@ -96,7 +96,7 @@ Below is a scheme of the application data flow.
 
 The application is hosted on a virtual private server (VPS) with Ubuntu operating system. Delivery is made via pre -built docker image.
 
-
+![Infra schema](/docs/infra.drawio.png)
 
 
 # Swegger Snapshot
