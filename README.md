@@ -1,4 +1,9 @@
 
+Group Components
+
+* [Ricardo Matos](https://www.linkedin.com/in/ricardo-matos-mobile-dev/)
+* [José Diôgo](https://www.linkedin.com/in/jozediogo/)
+
 # Project
 
 > Python Version: 3.11.9
@@ -71,7 +76,25 @@ http://localhost:8000/docs
 
 # Project Archtecture
 
+## Components
+
+The project has 3 main components:
+
+* An API REST using Framework Fastapi
+* A non -relational database (Mongodb)
+* The Embrapa portal with the data.
+
+Initially, we make a load of existing data on the portal in Mongodb. This is performed due to the occurrence of instability on the portal, so we guarantee data availability for our customers and, in the worst case, we could not upgrade with new data at some point.
+
+The load and update is by processing CSV files provided by downloading by the portal itself.
+
+Abaixo é apresentado um esquema do fluxo de dados da aplicação.
+
 ![Archtecture Model](/docs/archtecture.drawio.png)
+
+## Infrastructure
+
+
 
 
 # Swegger Snapshot
@@ -465,3 +488,5 @@ Get export trades by derivative and year
 | Security Schema | Scopes |
 | --- | --- |
 | OAuth2PasswordBearer | |
+
+> Generated on [swagger-markdown UI](https://swagger-markdown-ui.netlify.app/)
