@@ -14,9 +14,7 @@ async def get_trades(derivative: Literal[
         TradeDerivatives.FRASH_GRAPES.value, # type: ignore
         TradeDerivatives.GRAPE_JUICE.value, # type: ignore
         TradeDerivatives.RAISINS.value # type: ignore
-    ],
-    # token: str = Depends(verify_token),
-    ):
+    ], _ = Depends(verify_token)):
     report = await Trade.find_by_derivative_with_year(derivative=derivative, specific_year=2023, type_value="import")
     
     if not report:
@@ -33,7 +31,7 @@ async def get_trades(derivative: Literal[
         TradeDerivatives.RAISINS.value # type: ignore
     ],
     year: int,
-    # token: str = Depends(verify_token),
+    _ = Depends(verify_token),
     ):
     report = await Trade.find_by_derivative_with_year(derivative=derivative, specific_year=year, type_value="import")
     
@@ -49,7 +47,7 @@ async def get_trades(derivative: Literal[
         TradeDerivatives.FRASH_GRAPES.value, # type: ignore
         TradeDerivatives.GRAPE_JUICE.value # type: ignore
     ],
-    # token: str = Depends(verify_token),
+    _ = Depends(verify_token),
     ):
     report = await Trade.find_by_derivative_with_year(derivative=derivative, specific_year=2023, type_value="export")
     
@@ -66,7 +64,7 @@ async def get_trades(derivative: Literal[
         TradeDerivatives.GRAPE_JUICE.value # type: ignore
     ],
     year: int,
-    # token: str = Depends(verify_token),
+    _ = Depends(verify_token),
     ):
     report = await Trade.find_by_derivative_with_year(derivative=derivative, specific_year=year, type_value="export")
     
