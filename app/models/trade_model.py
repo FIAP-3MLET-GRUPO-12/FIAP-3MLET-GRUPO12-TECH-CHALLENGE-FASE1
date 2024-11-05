@@ -47,7 +47,7 @@ class Trade(Document):
         if not result:
             raise HTTPException(status_code=404, detail="No trades found for the given type or year")
         
-        return ReportGenerator(result, year=specific_year, type=type_value).create_trade_report(derivative=derivative, type=type_value, trades=result)
+        return ReportGenerator(year=specific_year).create_trade_report(derivative=derivative, type=type_value, trades=result)
     
     class Config:
          json_schema_extra = {

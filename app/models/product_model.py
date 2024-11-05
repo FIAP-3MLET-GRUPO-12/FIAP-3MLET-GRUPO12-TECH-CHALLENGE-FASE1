@@ -49,7 +49,7 @@ class Product(Document):
         if not result:
             raise HTTPException(status_code=404, detail="No products found for the given type or year")
         
-        return ReportGenerator(result, year=specific_year, type=type_value).create_product_report()
+        return ReportGenerator(year=specific_year).create_product_report(product=result, type_value=type_value)
 
     
     class Config:
